@@ -1,0 +1,62 @@
+input {
+	background-color: rgb(224, 224, 224);
+
+	outline: 3px solid transparent;
+
+	transition: outline 200ms ease;
+
+	&:focus {
+		outline: 3px solid rgb(255, 102, 0);
+	}
+}
+
+.input {
+	height: 32px;
+	border-radius: 20px;
+	border: none;
+
+	padding-left: 14px;
+	margin: 8px 16px 24px;
+	font-size: 20px;
+	font-weight: 550;
+
+	border: 1px solid rgba(17, 17, 17, 0.175);
+
+	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, 0.22);
+}
+
+.wrapper {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 8px;
+
+	& a {
+		width: 100%;
+
+		@media screen and (min-width: 481px) and (max-width: 767.67px) {
+			width: calc((100% - 8px) / 2);
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 1279px) {
+			width: calc((100% - 24px) / 4);
+		}
+
+		@media screen and (min-width: 1280px) {
+			width: calc((100% - 32px) / 5);
+		}
+		overflow: hidden;
+
+		margin-bottom: 16px;
+
+		filter: grayscale(0.3);
+
+		transition: filter 200ms ease;
+		transition: transform 200ms ease;
+	}
+
+	& a:hover {
+		filter: grayscale(0);
+		transform: scale(1.03);
+	}
+}

@@ -1,0 +1,149 @@
+.backLink {
+	display: inline-flex;
+	align-items: flex-start;
+	margin: 0 12px 12px;
+	padding: 8px 12px;
+
+	color: azure;
+	font-size: 20px;
+	font-weight: 400;
+
+	background-color: rgb(104, 112, 126);
+	border: 2px solid rgba(0, 0, 0, 0.243);
+	border-radius: 12px;
+
+	transition: color 250ms ease;
+	transition: background-color 250ms ease;
+
+	&:hover {
+		color: rgb(225, 255, 255);
+		background-color: rgba(0, 66, 179, 0.811);
+	}
+}
+
+.arrowIcon {
+	width: 24px;
+	height: 24px;
+
+	fill: rgba(236, 61, 30, 0.776);
+
+	margin-right: 12px;
+}
+
+.wrapper {
+	@media screen and (min-width: 768px) {
+		display: flex;
+		gap: 30px;
+	}
+
+	color: rgb(55, 47, 47);
+
+	margin-bottom: 16px;
+}
+
+.poster {
+	width: 100%;
+
+	@media screen and (min-width: 768px) {
+		width: 50%;
+	}
+
+	@media screen and (min-width: 1280px) {
+		width: 25%;
+	}
+
+	border-radius: 12px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+
+	border-bottom: 2px solid #000;
+}
+
+.title {
+	margin-bottom: 12px;
+}
+
+.tagline {
+	font-style: italic;
+	font-weight: 600;
+	font-size: 20px;
+
+	margin-bottom: 16px;
+
+	color: rgb(53, 5, 5);
+}
+
+.orange {
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.345);
+	font-size: 18px;
+	color: orange;
+	margin-bottom: 12px;
+}
+
+.yellow {
+	color: rgb(78, 212, 0);
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.345);
+	margin-bottom: 12px;
+	font-size: 18px;
+}
+
+.green {
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.345);
+	font-size: 18px;
+	margin-bottom: 12px;
+	color: rgb(46, 193, 46);
+}
+
+.red {
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.345);
+	font-size: 18px;
+	margin-bottom: 12px;
+	color: red;
+}
+
+.score {
+	margin-bottom: 16px;
+}
+
+h3 {
+	margin-bottom: 16px;
+}
+
+.genres {
+	font-size: 20px;
+	color: rgba(101, 34, 178, 0.685);
+	text-decoration: underline;
+
+	margin-bottom: 16px;
+}
+
+.overview {
+	font-size: 18px;
+	width: 100%;
+
+	@media screen and (min-width: 1280px) {
+		width: 75%;
+	}
+
+	margin-bottom: 16px;
+}
+
+.navigation {
+	display: flex;
+	gap: 12px;
+
+	margin: 0 12px 20px;
+
+	a {
+		color: black;
+		font-size: 20px;
+		font-weight: 600;
+
+		&.active {
+			color: #8a1515;
+		}
+	}
+}
