@@ -1,9 +1,11 @@
 import { Suspense, useEffect, useState } from "react";
-import { Link, Outlet, useParams, useLocation } from "react-router-dom";
-import { fetchMovieById } from "utils/fetchMovies";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
-import Fallback from "components/Fallback/Fallback";
-import { ReactComponent as ArrowLeft } from "../../icons/arrowLeft.svg";
+import { fetchMovieById } from "../../utils/fetchMovies";
+
+import Fallback from "../../components/Fallback/Fallback";
+
+import icon from "../../icons/arrowLeft.svg";
 
 import css from "./MovieDetails.module.scss";
 
@@ -46,12 +48,7 @@ export default function MovieDetails() {
 					Back
 				</Link>
 				<div className={css.wrapper}>
-					<img
-						loading="lazy"
-						className={css.poster}
-						src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-						alt={movie.title}
-					/>
+					<img loading="lazy" className={css.poster} src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} />
 
 					<div className={css.info}>
 						<h2 className={css.title}>{`${movie.title} (${releaseYear})`}</h2>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import css from "./Cast.module.scss";
 import { fetchCastById } from "../../utils/fetchMovies";
+import css from "./Cast.module.scss";
 
 export default function Cast() {
 	const { movieId } = useParams();
@@ -19,12 +19,7 @@ export default function Cast() {
 				person =>
 					person.profile_path && (
 						<li key={person.cast_id}>
-							<img
-								loading="lazy"
-								className={css.img}
-								alt={person.name}
-								src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
-							/>
+							<img loading="lazy" className={css.img} alt={person.name} src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`} />
 
 							<h3>{person.name}</h3>
 							<h4>Character:{person.character}</h4>

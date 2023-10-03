@@ -1,1 +1,1 @@
-# goit-react-hw-05-movies
+# ts-react-05-movies

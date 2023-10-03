@@ -35,4 +35,9 @@ main {
 	&:hover {
 		color: rgb(251, 219, 183);
 	}
+
+	& [class="active"] {
+		color: rgb(101, 255, 119);
+		transition: color 250ms ease-out;
+	}
 }

@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
-import Fallback from "components/Fallback/Fallback";
+import Fallback from "../Fallback/Fallback";
+
 import css from "./Layout.module.scss";
 
 export default function Layout() {

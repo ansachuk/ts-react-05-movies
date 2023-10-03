@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import MovieItem from "components/MovieItem/MovieItem";
-import { fetchTrendingMovies } from "utils/fetchMovies";
+import MovieItem from "../../components/MovieItem/MovieItem";
+
+import { fetchTrendingMovies } from "../../utils/fetchMovies";
+
 import css from "./Homepage.module.scss";
 
 export default function Homepage() {
