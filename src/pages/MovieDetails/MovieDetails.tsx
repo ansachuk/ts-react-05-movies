@@ -5,28 +5,31 @@ import { fetchMovieById } from "../../utils/fetchMovies";
 
 import Fallback from "../../components/Fallback/Fallback";
 
+import { Movie } from "../../@types/types";
 import icon from "../../icons/arrowLeft.svg";
 
 import css from "./MovieDetails.module.scss";
 
 export default function MovieDetails() {
-	const [movie, setMovie] = useState(null);
+	const [movie, setMovie] = useState<Movie>();
 	const { movieId } = useParams();
 
 	const location = useLocation();
 	const backLinkHref = location.state?.from ?? "/movies";
 	let scoreClass;
-	let statusClass;
+	let userScore = 0;
 
 	useEffect(() => {
-		if (!movie) {
+		if (!movie && movieId) {
 			fetchMovieById(movieId).then(setMovie);
 		}
 	}, [movie, movieId]);
 
 	const releaseYear = movie?.release_date ? new Date(movie.release_date).getFullYear() : "N/A";
 
-	const userScore = (movie?.vote_average * 10).toFixed(2);
+	if (movie) {
+		userScore = Number((movie.vote_average * 10).toFixed(2));
+	}
 
 	if (userScore < 50 && userScore > 25) {
 		scoreClass = css.orange;
@@ -38,13 +41,15 @@ export default function MovieDetails() {
 		scoreClass = css.red;
 	}
 
-	statusClass = movie?.status === "Released" ? css.green : css.red;
+	const statusClass = movie?.status === "Released" ? css.green : css.red;
 
 	return (
 		movie && (
 			<>
 				<Link className={css.backLink} to={backLinkHref}>
-					<ArrowLeft className={css.arrowIcon} />
+					<svg width="40" height="40">
+						<use href={icon + "#arrowLeft"}></use>
+					</svg>
 					Back
 				</Link>
 				<div className={css.wrapper}>
@@ -80,7 +85,7 @@ export default function MovieDetails() {
 				</nav>
 
 				<Suspense fallback={<Fallback />}>
-					<Outlet id={movieId} />
+					<Outlet />
 				</Suspense>
 			</>
 		)

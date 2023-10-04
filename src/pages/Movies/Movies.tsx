@@ -1,22 +1,29 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 
-import MovieItem from "components/MovieItem/MovieItem";
-import { fetchByQuery } from "utils/fetchMovies";
-import useDebounce from "hooks/useDebounce";
+import MovieItem from "../../components/MovieItem/MovieItem";
+
+import { fetchByQuery } from "../../utils/fetchMovies";
+import { TrendingMovie } from "../../@types/types";
+
+import useDebounce from "../../hooks/useDebounce";
+
 import css from "./Movies.module.scss";
 
 export default function Movies() {
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [searchedMovies, setSearchedMovies] = useState(null);
+	const [searchedMovies, setSearchedMovies] = useState<Array<TrendingMovie>>([]);
 	const query = searchParams.get("query") ?? "";
 	const location = useLocation();
 
 	const debouncedQuery = useDebounce(query, 500);
 
-	const updateSearchParams = query => {
-		const nextSearchParams = query.trim() !== "" ? { query } : {};
-		setSearchParams(nextSearchParams);
+	const updateSearchParams = (query: string) => {
+		if (query.trim() === "") {
+			searchParams.delete("query");
+			return setSearchParams(searchParams);
+		}
+		setSearchParams({ query });
 	};
 
 	useEffect(() => {

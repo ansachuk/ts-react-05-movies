@@ -1,6 +1,12 @@
+import { Movie } from "../../@types/types";
+
 import css from "./MovieItem.module.scss";
 
-export default function MovieItem({ movie: { title, poster_path, release_date } }) {
+type Props = {
+	movie: Movie;
+};
+
+export default function MovieItem({ movie: { title, poster_path, release_date } }: Props) {
 	return (
 		<>
 			<img loading="lazy" className={css.posterImg} src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title} />
