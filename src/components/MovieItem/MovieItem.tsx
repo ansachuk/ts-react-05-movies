@@ -1,9 +1,9 @@
-import { Movie } from "../../@types/types";
+import { TrendingMovie } from "../../@types/types";
 
 import css from "./MovieItem.module.scss";
 
 type Props = {
-	movie: Movie;
+	movie: TrendingMovie;
 };
 
 export default function MovieItem({ movie: { title, poster_path, release_date } }: Props) {
